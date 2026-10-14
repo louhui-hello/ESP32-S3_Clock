@@ -70,7 +70,11 @@
 
 ## 许可证
 
-本项目采用 **CERN Open Hardware Licence Version 2 - Strongly Reciprocal (CERN-OHL-S-2.0)**。
+本项目采用 **CERN Open Hardware Licence Version 2 - Strongly Reciprocal**。
+
+SPDX-License-Identifier: `CERN-OHL-S-2.0`
+
+> 官方全文：https://ohwr.org/cern_ohl_s_v2.txt
 
 Copyright (C) 2026 **louhui** (https://github.com/louhui-hello)
 
