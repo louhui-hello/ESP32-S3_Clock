@@ -4,6 +4,8 @@
 
 **作者：louhui** ｜ GitHub: [@louhui-hello](https://github.com/louhui-hello)
 
+仓库：[louhui-hello/ESP32-S3_Clock](https://github.com/louhui-hello/ESP32-S3_Clock)
+
 ## 功能
 
 | 功能 | 实现 |
