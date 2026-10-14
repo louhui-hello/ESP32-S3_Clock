@@ -68,9 +68,31 @@
 
 ## 许可证
 
-本项目采用 **GNU General Public License v3.0**，详见 [LICENSE](LICENSE)。
+本项目采用 **CERN Open Hardware Licence Version 2 - Strongly Reciprocal (CERN-OHL-S-2.0)**。
 
-> 简单说：**你可以自由使用、修改、分发，但修改后的作品必须同样以 GPL-3.0 开源**，且需保留原作者署名。商业使用也需遵守同样条款（即不能闭源）。
+Copyright (C) 2026 **louhui** (https://github.com/louhui-hello)
+
+全文见 [LICENSE](LICENSE)。这是**硬件圈推荐的强互惠（strongly reciprocal）协议**：
+
+- ✅ 你可以自由**使用、制造、修改、分发**本设计（包括商业用途）；
+- ✅ 但**分发修改版硬件时，必须提供完整的设计源文件**（原理图、PCB 等 "Complete Source"）；
+- ✅ 且**衍生作品必须使用相同的 CERN-OHL-S 协议**；
+- ✅ 必须**保留原作者署名与版权声明**。
+
+> 也就是说：**改了我的板子再发出去，你必须同样开源你的 PCB 源文件**——不能闭源。
+
+文档与图片（`docs/`）如需注明，可另按 **CC-BY-SA-4.0** 处理。
+
+### 用于你自己的设计文件
+
+若你基于本设计做了修改，请在你的设计文件（原理图/PCB 页）中保留如下声明：
+
+```
+Copyright (C) 2026 louhui (https://github.com/louhui-hello)
+This source describes Open Hardware and is licensed under the CERN-OHL-S v2.
+You may redistribute and modify this source and make products using it under
+the terms of the CERN-OHL-S v2 (https://ohwr.org/cern_ohl_s_v2.txt).
+```
 
 ## 致谢
 
