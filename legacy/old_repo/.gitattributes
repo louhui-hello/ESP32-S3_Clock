@@ -1,0 +1,6 @@
+# 大文件走 LFS（可选：本仓库未启用 LFS 时的备用方案）
+*.epro2 -text
+*.eprj2 -text
+*.png -text
+*.jpg -text
+*.pdf -text

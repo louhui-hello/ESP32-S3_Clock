@@ -9,9 +9,42 @@ Archived material from earlier revisions — kept for traceability, **no longer 
 
 | 目录 / Dir | 内容 / Content |
 |---|---|
-| `v1.5_esp8266/` | V1.5 板子（ESP8266）的 Gerber、仿真图、照片 |
-| `boms/` | 历次 BOM 快照 |
-| `project_files/` | 旧格式工程文件（`.epro` 标准版等） |
+| `old_repo/` | **旧仓库 `open_source` 的完整快照**（V3.0 重构前的结构） |
+| `v1.5_esp8266/` | V1.5 板子（ESP8266）的 Gerber、仿真图、照片（待补） |
+| `boms/` | 历次 BOM 快照（待补） |
+| `project_files/` | 旧格式工程文件（待补） |
+
+---
+
+## `old_repo/` 是什么 · What Is `old_repo`
+
+```
+旧仓库 open_source 的结构：
+├── README.md                        4.4 KB
+├── LICENSE                          13.2 KB
+├── docs/
+│   ├── NOTES.md                     2.5 KB
+│   └── images/
+├── firmware/README.md               0.5 KB
+└── hardware/
+    ├── BOM_立创商城_ESP32-S3_Clock.xlsx   9.8 KB
+    ├── BOM.csv                      2.9 KB
+    ├── BOM.md                       7.3 KB
+    ├── esp32s3_clock.epro2          371.4 KB
+    └── README.md                    0.5 KB
+```
+
+**它和新结构的关系 · Relation to the new layout**
+
+| 旧仓库 | 新仓库 |
+|---|---|
+| `hardware/BOM.csv` / `BOM.md` | `hardware/PCB/BOM/` |
+| `hardware/esp32s3_clock.epro2` | `hardware/Project_Files/Project_EasyEDA/v3/` |
+| `docs/NOTES.md` | 内容已并入 `docs/versions.md` |
+| 根目录的 BOM 文件 | 已按目录归类 |
+
+> `old_repo/.gitignore` 已改名为 `.gitignore.old`，避免影响上级仓库。
+> The archived `.gitignore` was renamed so it doesn't apply to this repository.
 
 ---
 
@@ -30,12 +63,12 @@ Archived material from earlier revisions — kept for traceability, **no longer 
 
 ---
 
-## 索引 · Index
+## 版本索引 · Version Index
 
 | 版本 / Ver | 主控 / MCU | 状态 / Status |
 |---|---|---|
 | V1 | STC15 | ❌ 文件已丢失 |
-| V1.5 | ESP8266（ESP-12F） | 🔒 存档于此 |
+| V1.5 | ESP8266（ESP-12F） | 🔒 待补入 `v1.5_esp8266/` |
 | V2 | ? | ❓ 待补 |
 | V3.0 | ESP32-S3 | ✅ 当前版本，见 `hardware/` |
 
@@ -43,6 +76,6 @@ Archived material from earlier revisions — kept for traceability, **no longer 
 
 ## TODO
 
-- [ ] 把 V1.5 的 Gerber / 仿真图放进来
-- [ ] 把历次 BOM 快照放进来
+- [ ] 把 V1.5 的 Gerber / 仿真图放进 `v1.5_esp8266/`
+- [ ] 把历次 BOM 快照放进 `boms/`
 - [ ] 如果有 V1 的照片，也放进来
