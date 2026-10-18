@@ -1,0 +1,34 @@
+# ── 构建产物 / Build artifacts ──
+build/
+cmake-build-*/
+*.o
+*.obj
+*.elf
+*.bin
+*.hex
+*.map
+
+# ── ESP-IDF ──
+sdkconfig
+sdkconfig.old
+
+# ── 编辑器 / Editors ──
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── 操作系统 / OS ──
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── 立创EDA 自动备份 / EasyEDA backups ──
+*_backup*
+*.epro2.bak
+*.epro.bak
+
+# ── 临时文件 / Temp ──
+*.tmp
+*.log
+~$*
