@@ -58,6 +58,7 @@ An 81.9 × 72.3 mm four-layer desktop clock: high-accuracy DS3231 RTC, 0.91" OLE
 │   ├── Schematic/         原理图 / schematic
 │   └── STEP/              3D 模型 / 3D model
 ├── firmware/              ESP-IDF 固件 / firmware
+├── legacy/                旧版本存档 / archived revisions
 └── tools/                 辅助脚本 / helper scripts
 ```
 
