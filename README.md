@@ -1,5 +1,7 @@
 # ESP32-S3 开源电池版时钟
 
+> 🌍 English version: **[README.en.md](README.en.md)**
+
 一张 81.9 × 72.3 mm 的四层板桌面时钟：DS3231 高精度走时 + 0.91" OLED + 蜂鸣器闹钟 + 21700 电池。
 
 An 81.9 × 72.3 mm four-layer desktop clock: high-accuracy DS3231 RTC, 0.91" OLED, buzzer alarm, and a 21700 battery.
@@ -86,3 +88,4 @@ This project is licensed under **CERN-OHL-S-2.0** (Strongly Reciprocal).
 
 > 开源是种浪漫。
 > Open Source is Love.
+
