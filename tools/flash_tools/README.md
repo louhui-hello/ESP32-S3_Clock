@@ -125,9 +125,50 @@ windeployqt --release --qmldir ../qml esp32flasher.exe
 
 ---
 
+## 静态编译（真正的单文件） · Static Build
+
+用静态 Qt 可以把烧录器编成**不依赖任何 DLL 的单个 exe**，并把 esptool 嵌进资源。
+
+### 1. 编译静态 Qt（一次性，约 1 小时）
+
+```powershell
+# 源码: https://download.qt.io/official_releases/qt/6.12/6.12.0/single/qt-everywhere-src-6.12.0.tar.xz
+.\configure.bat -static -static-runtime -release -platform win32-g++ ^
+    -prefix G:\lang\Qt-static-6.12.0 -nomake examples -nomake tests ^
+    -skip qtwebengine -skip qtquick3d -skip qtquick3dphysics -skip qtmultimedia
+ninja -j16
+ninja install
+```
+
+### 2. 编烧录器
+
+```powershell
+cmake -G Ninja -DCMAKE_BUILD_TYPE=Release ^
+      -DCMAKE_PREFIX_PATH=G:\lang\Qt-static-6.12.0 ^
+      -S source -B build-static
+ninja -C build-static
+```
+
+### 3. 产物
+
+```
+esp32flasher.exe   105 MB   单文件，零第三方 DLL 依赖
+```
+
+首次启动会把内嵌的 `esptool.exe`（105 KB）解到 exe 同级目录；
+只有该目录不可写时才退到 `%LOCALAPPDATA%`。
+
+**静态 Qt 的两个关键点**：
+
+1. `CMakeLists.txt` 里必须有 `qt_import_qml_plugins()`，否则 QML 界面空白
+2. 资源路径要与 `main.cpp` 里的 `:/tools/esptool.exe` 一致
+
+许可：本项目 GPLv3，Qt 为 LGPLv3；GPLv3 在 LGPL 兼容清单内，静态链接合法。
+
+---
+
 ## 注意 · Notes
 
-- ⚠️ **单文件版每次启动会在 `%TEMP%` 留约 135 MB**（7zSD 不自动清理）
-  定期清一下：`Get-ChildItem $env:TEMP -Directory -Filter "7zS*" | Remove-Item -Recurse -Force`
 - ⚠️ 烧录波特率从 115200 起试，稳了再加到 460800
 - ⚠️ 没有自动下载电路时，GPIO0 拉低 + 复位才能进下载模式
+
