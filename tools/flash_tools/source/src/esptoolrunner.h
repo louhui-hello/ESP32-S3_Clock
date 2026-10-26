@@ -19,6 +19,9 @@ class EsptoolRunner : public QObject
 public:
     explicit EsptoolRunner(QObject *parent = nullptr);
 
+    /** 由 main() 从 qrc 解出 esptool 后设置，构造函数优先使用它 */
+    static void setBundledPath(const QString &path);
+
     QString esptoolPath() const { return m_esptoolPath; }
     void setEsptoolPath(const QString &p);
 

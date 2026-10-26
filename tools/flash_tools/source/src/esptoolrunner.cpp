@@ -6,13 +6,25 @@
 #include <QFileInfo>
 #include <QDebug>
 
+static QString g_bundledEsptool;
+
+void EsptoolRunner::setBundledPath(const QString &path)
+{
+    g_bundledEsptool = path;
+}
+
 EsptoolRunner::EsptoolRunner(QObject *parent)
     : QObject(parent)
 {
-    // 默认找同目录下的 esptool.exe
-    QString guess = QCoreApplication::applicationDirPath() + "/esptool.exe";
-    if (QFileInfo::exists(guess))
-        m_esptoolPath = guess;
+    // ① 优先用从 qrc 解出来的 esptool（单文件发布）
+    // ② 否则找同目录下的 esptool.exe（便携版）
+    if (!g_bundledEsptool.isEmpty() && QFileInfo::exists(g_bundledEsptool)) {
+        m_esptoolPath = g_bundledEsptool;
+    } else {
+        QString guess = QCoreApplication::applicationDirPath() + "/esptool.exe";
+        if (QFileInfo::exists(guess))
+            m_esptoolPath = guess;
+    }
 
     m_proc = new QProcess(this);
     m_proc->setProcessChannelMode(QProcess::MergedChannels);

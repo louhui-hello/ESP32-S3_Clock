@@ -19,6 +19,14 @@ qt_add_executable(esp32flasher
     src/portlister.h
 )
 
+# 把 esptool.exe 编进 exe（单文件发布）
+# 资源路径为 :/tools/esptool.exe
+qt_add_resources(esp32flasher "esptool_resources"
+    PREFIX "/"
+    FILES
+        tools/esptool.exe
+)
+
 qt_add_qml_module(esp32flasher
     URI EspFlasher
     VERSION 1.0
@@ -31,6 +39,13 @@ target_link_libraries(esp32flasher PRIVATE
     Qt6::QuickControls2
     Qt6::SerialPort
 )
+
+# 静态 Qt 构建时必须显式导入 QML 插件，否则运行后界面空白
+if(QT6_IS_SHARED_LIBS_BUILD)
+    # 动态构建：交给 windeployqt 处理
+else()
+    qt_import_qml_plugins(esp32flasher)
+endif()
 
 # Windows 下不弹控制台窗口
 if(WIN32)
