@@ -33,6 +33,10 @@ desktop.ini
 *.log
 ~$*
 
+# ── 大体积二进制（放进 GitHub Release，不入库）──
+hardware/PCB/Gerber/3D_*.zip
+hardware/PCB/Gerber/blender.zip
+
 # ── 本地凭据 / Local secrets（不要提交到公开仓库）──
 wifi_secrets.h
 secrets.h
