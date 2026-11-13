@@ -1,0 +1,12 @@
+ESP32 Flasher - LLVM static Release
+
+运行 esp32flasher.exe；请保留同目录的 esptool.exe。
+Qt 6.12 已静态链接，不需要额外 Qt DLL。
+esptool 5.6.0 由 PyInstaller 打包，内含 Python，不需要安装 Python 或激活 venv。
+编译器：LLVM-MinGW / Clang 22.1.7，x86_64，UCRT，Release。
+
+重新构建：在项目根目录运行 build-llvm-static.ps1。
+构建依赖仅安装到 build/esptool-venv；venv 不需要随发布包分发。
+程序启动与 esptool 离线命令已验证，未对设备执行擦除或烧录。
+
+第三方后端 esptool 使用 GPL-2.0-or-later；源代码与许可证见 https://github.com/espressif/esptool 。

@@ -50,3 +50,15 @@ firmware/test_cache/
 tools/serial_log.txt
 *.zst
 
+
+# Local firmware work is not part of this hardware/documentation update.
+/firmware/Arduino/
+/firmware/ESP-IDF/
+
+# Local Python and editor caches.
+__pycache__/
+*.pyc
+.venv/
+*.pfx
+*.p12
+*.key
