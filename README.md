@@ -2,6 +2,8 @@
 
 基于 ESP32-S3 的桌面时钟开源项目，整理硬件工程、原理图、PCB 制造文件、物料清单及配套烧录工具。
 
+**立创开源广场：[查看开源项目](https://oshwhub.com/eda_bcvdoksi/project_ujujbkrc)**
+
 作者：**学 ARM Keil 的初中生 / louhui-hello**。
 
 ## 项目状态
