@@ -51,9 +51,10 @@ tools/serial_log.txt
 *.zst
 
 
-# Local firmware work is not part of this hardware/documentation update.
+# Unpublished Arduino firmware and local development configuration.
 /firmware/Arduino/
-/firmware/ESP-IDF/
+/firmware/ESP-IDF/esp32clock/.clangd
+/firmware/ESP-IDF/esp32clock/.devcontainer/
 
 # Local Python and editor caches.
 __pycache__/

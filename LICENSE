@@ -13,9 +13,11 @@ index of their license scopes; it does not replace any license text.
 
 2. Original standalone drivers
    SPDX-License-Identifier: MIT
-   Scope includes the standalone ds3231.c and ds3231.h driver files,
-   whose sources will be organized separately from this hardware update.
-   Full text: LICENSES/MIT.txt. Individual driver notices also apply.
+   Current files:
+   firmware/ESP-IDF/esp32clock/main/ds3231.c
+   firmware/ESP-IDF/esp32clock/main/ds3231.h
+   Full text: LICENSES/MIT.txt and
+   firmware/ESP-IDF/esp32clock/main/LICENSE-MIT.
 
 3. Original hardware design materials
    SPDX-License-Identifier: CERN-OHL-S-2.0

@@ -6,7 +6,7 @@
 
 ## 项目状态
 
-当前以 **Mini V4.0 硬件资料**和工具归档为主，完整时钟固件仍在开发。固件源码后续单独整理，当前不提供已完成板级适配的固件。
+当前包含 **Mini V4.0 硬件资料**、配套烧录工具及 **DS3231 驱动与 ESP-IDF 示例工程**。完整时钟固件和 Mini V4.0 板级适配仍在开发。
 
 | 版本 | 仓库内容 | 使用说明 |
 | --- | --- | --- |
@@ -54,7 +54,7 @@
 
 根据板级引脚说明，I²C 已配置 **4.7 kΩ 上拉**，BOOT 和 EN 均通过 **10 kΩ 电阻上拉至 3.3 V**。
 
-不同板卡和测试示例的 GPIO 配置可能不同。接线与固件配置应按对应版本的原理图核对，Mini V4.0 的 SDA 为 GPIO9。
+现有 [DS3231 示例](firmware/ESP-IDF/esp32clock/README.md) 默认使用 SDA=GPIO18、SCL=GPIO8，Mini V4.0 的 SDA 为 GPIO9。用于 Mini V4.0 前，请在示例 `main.c` 中将 `PIN_SDA` 改为 9，并对照原理图确认接线。
 
 ## 配套烧录工具
 
@@ -70,7 +70,9 @@
 
 ## 固件状态
 
-[firmware/README.md](firmware/README.md) 保留固件开发说明。固件应用计划采用 GPL-3.0-only，自研驱动采用 MIT；源码与板级适配将在后续单独整理。
+[firmware/README.md](firmware/README.md) 提供开发状态和构建入口。当前已收录 [ESP-IDF DS3231 示例工程](firmware/ESP-IDF/esp32clock/README.md)，包含驱动初始化、时间读写、温度读取、OSF 检查与清除及编译时间对时。
+
+示例会通过串口打印时间与温度；它仍是驱动验证工程，不包含完整时钟的屏幕、按键和闹钟应用。固件应用采用 GPL-3.0-only，独立驱动采用 MIT。
 
 ## 目录结构
 
@@ -89,7 +91,9 @@ esp_clock/
 │   └── esp-flasher/           # 烧录器、后端及第三方许可证
 └── firmware/
     ├── README.md              # 开发状态说明
-    └── LICENSE                # 固件应用许可，驱动另按 MIT
+    ├── LICENSE                # 固件应用许可，驱动另按 MIT
+    └── ESP-IDF/
+        └── esp32clock/        # DS3231 驱动与串口示例
 ```
 
 ## 许可证
@@ -99,7 +103,7 @@ esp_clock/
 | 内容 | 许可证 | 完整条款与范围 |
 | --- | --- | --- |
 | 固件应用、整机逻辑及示例应用 | **GPL-3.0-only** | [firmware/LICENSE](firmware/LICENSE)；自研驱动除外 |
-| 自研驱动；包括后续单独整理的 `ds3231.c`、`ds3231.h` | **MIT** | [MIT 许可证](LICENSES/MIT.txt) |
+| 自研驱动 `ds3231.c`、`ds3231.h` | **MIT** | [驱动 MIT 许可证](firmware/ESP-IDF/esp32clock/main/LICENSE-MIT) |
 | 原创硬件设计、原理图、PCB 工程、Gerber、BOM 与硬件说明 | **CERN-OHL-S-2.0** | [hardware/LICENSE](hardware/LICENSE) |
 | ESP32 Flasher 图形工具 | **GPL-3.0-only** | [工具许可证](tools/esp-flasher/LICENSE) |
 | esptool 后端 | **GPL-2.0-or-later** | [后端许可证](tools/esp-flasher/licenses/esptool-LICENSE.txt) |
